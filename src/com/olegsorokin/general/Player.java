@@ -15,6 +15,14 @@ public class Player {
 		this.mana = mana;
 	}
 	
+	public void damage(int damage) {
+		this.health -= damage;
+	}
+	
+	public void heal(int heal) {
+		this.health += heal;
+	}
+	
 	public String getName() { return this.name; }
 	public int getHealth() { return this.health; }
 	public int getMana() { return this.mana; }
