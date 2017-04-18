@@ -17,7 +17,7 @@ public class Game {
 	private static boolean isFirstTurn = true;
 	private int turn;
 	
-	public Game() {
+	public Game(Scanner scanner) {
 		while (true) {
 			// Initialize the game.
 			if (isFirstTurn) { init(); }
@@ -36,11 +36,18 @@ public class Game {
 					break;
 				case 2:
 					activePlayer = bluePlayer;
-					otherPlayer = bluePlayer;
+					otherPlayer = redPlayer;
 					break;
 				}
 				
 				isFirstTurn = false;
+			}
+			
+			System.out.println("\n");
+			if (turn == 1) {
+				System.out.println("Red Player move!");
+			} else {
+				System.out.println("Blue Player move!");
 			}
 			
 			// Cache players's skills.
@@ -48,8 +55,7 @@ public class Game {
 			Skill[] otherPlayerSkills = otherPlayer.getSkills();
 			
 			// Gets skill number from the user.
-			Scanner scanner = new Scanner(System.in);
-			int input = scanner.nextInt();
+			int input =  scanner.nextInt();
 			
 			// Exit the game if the user types "0".
 			if (input == 0) {
@@ -80,8 +86,6 @@ public class Game {
 			
 			// Clear the screen: next turn.
 			Helpers.clear();
-			
-			scanner.close();
 		}
 	}
 	

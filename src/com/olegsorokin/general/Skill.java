@@ -12,11 +12,11 @@ public class Skill {
 	public Skill(String name, int manaCost, Vector<Integer> damage) {
 		this.name = name;
 		this.manaCost = manaCost;
-		this.damage = new Vector<Integer>(2);
+		this.damage = damage;
 	}
 	
 	public int rollDamage() {
-		return new Random().nextInt(this.damage.get(2)) + this.damage.get(1);
+		return new Random().nextInt(this.damage.get(1)) + this.damage.get(0);
 	}
 	
 	public String getName() { return this.name; }
